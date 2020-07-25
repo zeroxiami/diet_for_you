@@ -1,0 +1,17 @@
+<html>
+    <h1>personal information</h1>
+    <ul>
+
+        {% for inf in info %}
+        <p>id : {{inf.id}}</p>
+        <p>name : {{inf.name}}</p>
+        <p>calories : {{inf.calories}}</p>
+        <p>height : {{inf.height}}</p>
+        <p>weight : {{inf.weight}}</p>
+        <form action="/edit/{{inf.id}}/" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="edit">
+        </form>
+        {% endfor %}
+    </ul>
+    
