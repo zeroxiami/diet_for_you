@@ -1,0 +1,18 @@
+    
+<!DOCTYPE html>
+<html>
+    {% for info in recipeInfo %}
+    <ul>
+        <li style="font-size:160%;">breakfast : {{info.foodItem1}}</li>
+        <li style="font-size:160%;">lunch : {{info.foodItem2}}</li>
+        <li style="font-size:160%;">dinner : {{info.foodItem3}}</li>
+    </ul>
+    <form action="/recipe/delete/{{info.id}}" method="POST"> {% csrf_token %}
+        <input type = "submit" value = "Delete">
+    </form>
+    {% endfor %}
+
+    <form action = "/recipe/addNew/" methond = "Post">{% csrf_token %}
+        <input type = "submit" value = "Add">
+    </form>
+</html>
