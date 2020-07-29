@@ -1,16 +1,16 @@
 <html>
-    <h1>personal information</h1>
-    <form action="/edit/updateInfo/" method="POST">
+    <h1>profile</h1>
+    <form action="/profile/" method="POST">
         {% csrf_token %}
-        <p>id : {{info.id}}</p>
+        <p>id : {{userId}}</p>
         <label for="input">name: </label>
-        <input type="text" id="input" name="name" value={{info.name}}><br><br>
+        <input type="text" id="input" name="name"><br><br>
         <label for="input2">calories: </label>
-        <input type="text" id="input2" name="cal" value = {{info.calories}}><br><br>
+        <input type="number" id="input2" name="cal"><br><br>
         <label for="input3">height: </label>
-        <input type="text" id="input3" name="height" value = {{info.height}}><br><br>
+        <input type="number" id="input3" name="height"><br><br>
         <label for="input4">weight: </label>
-        <input type="text" id="input4" name = "weight" value = {{info.weight}}><br><br>
+        <input type="number" id="input4" name = "weight"><br><br>
         <label for="input5">daily exercise: </label>
         <input type="number" id="input5" name = "exercise"><br><br>
         <label for="input6">speical diet: </label>
@@ -21,7 +21,6 @@
         <label for="input7">age: </label>
         <input type="number" id="input7" name = "age"><br><br>
         <input type="submit" value="Submit">
-        <input type="submit" value="Submit">
-        <input type="hidden" id="input0" name="pid" value = {{info.id}}><br><br>
+        <input type="hidden" id="input0" name="pid" value = {{userId}}><br><br>
       </form>
 </html>

@@ -1,9 +1,17 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
-# Create your models here.
+class SignUpForm(UserCreationForm):
+    username = models.CharField(max_length = 50, primary_key=True)
+
+    class Meta:
+        model = User
+        fields = ('username', 'password1', 'password2')
+
 class post_data(models.Model):
-    id = models.IntegerField(primary_key= True)
+    id = models.CharField(max_length = 50, primary_key= True)
     calories = models.FloatField(default= 2000.0)
     height = models.FloatField(default = 180)
     weight = models.FloatField(default = 75)
@@ -11,7 +19,6 @@ class post_data(models.Model):
     dailyExtraConsume = models.FloatField(default=0)
     specialDiet = models.CharField(max_length = 100, default = 'none')
     age = models.IntegerField(null = True)
-    dateOfJoin = models.DateField(auto_now_add= True, null =True)
 
 
     def __str__(self) :
