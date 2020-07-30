@@ -12,15 +12,14 @@
         <label for="input4">weight: </label>
         <input type="text" id="input4" name = "weight" value = {{info.weight}}><br><br>
         <label for="input5">daily exercise: </label>
-        <input type="number" id="input5" name = "exercise"><br><br>
+        <input type="number" id="input5" name = "exercise" value = {{info.dailyExtraConsume}}><br><br>
         <label for="input6">speical diet: </label>
-        <select name="speicalDiet" id="input6">
+        <select name="speicalDiet" id="input6" value = {{info.specialDiet}}>
         <option value="none">none</option>
         <option value="vegetarian">vegetarian</option>
         </select><br><br>
         <label for="input7">age: </label>
-        <input type="number" id="input7" name = "age"><br><br>
-        <input type="submit" value="Submit">
+        <input type="number" id="input7" name = "age" value = {{info.age}}><br><br>
         <input type="submit" value="Submit">
         <input type="hidden" id="input0" name="pid" value = {{info.id}}><br><br>
       </form>
