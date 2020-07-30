@@ -30,6 +30,7 @@ class foodTable(models.Model):
     foodCal = models.FloatField()
     foodName = models.CharField(max_length = 125)
     trait = models.CharField(max_length = 30)
+    restrict = models.CharField(max_length = 30, null = True)
     protein = models.FloatField()
     fat = models.FloatField()
     carb = models.FloatField()
@@ -38,6 +39,7 @@ class foodTable(models.Model):
         return self.foodName
 
 class recipeTable(models.Model):
+    user = models.ForeignKey('post_data', on_delete=models.CASCADE, null = True)
     foodItem1 = models.CharField(max_length=125, null=True)
     cal1 = models.FloatField(default=0)
     foodItem2 = models.CharField(max_length=125, null=True)
