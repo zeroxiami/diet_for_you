@@ -4,7 +4,7 @@ import './App.css';
 import {Layout, Menu, Form, Input, Button, Typography, InputNumber} from 'antd';
 import axios from 'axios';
 
-const { Header, Content} = Layout;
+const {Header, Content, Footer } = Layout;
 const {Title} = Typography;
 
 const layout = {
@@ -58,6 +58,7 @@ const Registration = () => {
                     </Menu>
                 </Header>
                 <Content>
+                    <br></br>
                     <Title level={2}>Please enter your information to register for an account.</Title>
                     <Form {...layout} name="nest-messages" onFinish={onFinish} style={{width: '75%'}} validateMessages={validateMessages}>
                         <Form.Item name={['user', 'name']} label="Username">
@@ -98,6 +99,7 @@ const Registration = () => {
                         </Form.Item>
                     </Form>
                 </Content>
+                <Footer></Footer>
             </Layout>
         </div>
     );

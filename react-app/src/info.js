@@ -6,7 +6,7 @@ import {PageHeader, Layout, Menu, Typography, Form, Input, InputNumber, Button} 
 import axios from 'axios';
 
 const {Title} = Typography;
-const { Header, Content} = Layout;
+const { Header, Content, Footer } = Layout;
 
 const layout = {
     labelCol: { span: 8 },
@@ -108,6 +108,7 @@ const Info = () => {
                 </Menu>
             </Header>
             <Content className="info-content">
+                <br></br>
                 <Title level={2}>Enter your UserID here to view or update your personal information.</Title>
                 <Input
                     placeholder="Enter your userID" 
@@ -115,6 +116,7 @@ const Info = () => {
                     onPressEnter={handlePressEnter}
                 />
             </Content>
+            <Footer></Footer>
         </Layout>
     </div>
     );

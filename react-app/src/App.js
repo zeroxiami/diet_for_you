@@ -3,7 +3,7 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import {Switch} from 'react-router-dom';
 import {withRouter} from 'react-router';
 import './App.css';
-import {Layout, Menu, Typography, Form, Input, Button} from 'antd';
+import {Space, Layout, Menu, Typography, Form, Input, Button} from 'antd';
 import Registration from './registration';
 import Info from './info';
 import Recipes from './recipes';
@@ -52,6 +52,7 @@ const Home = () => {
             </Menu>
         </Header>
         <Content>
+          <br></br>
           <Title level={2}>Login to your account or register for a new one.</Title>
           <Form
           {...layout}
@@ -83,8 +84,7 @@ const Home = () => {
           </Form.Item>
         </Form>
       </Content>
-      <Footer className="site-layout-content">
-      </Footer>
+      <Footer></Footer>
     </Layout>
   </div>
   );
