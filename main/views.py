@@ -5,7 +5,16 @@ from django.db import connection, transaction
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 import random
+from rest_framework import viewsets
+from .serializers import post_data_serializer, recipeTable_serializer
 
+class post_data_view(viewsets.ModelViewSet):
+   serializer_class = post_data_serializer
+   queryset = post_data.objects.all()
+
+class recipeTable_view(viewsets.ModelViewSet):
+   serializer_class = recipeTable_serializer
+   queryset = recipeTable.objects.all()
 
 def signup(request):
     if request.method == 'POST':

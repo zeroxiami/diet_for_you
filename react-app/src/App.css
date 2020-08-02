@@ -1,7 +1,11 @@
 @import '~antd/dist/antd.css';
 
+.info-content {
+  text-align: center;
+}
+
 .site-page-header {
-  background-color: grey;
+  background-color: #368bff;
 }
 
 .App {
