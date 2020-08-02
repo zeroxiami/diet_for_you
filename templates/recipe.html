@@ -2,10 +2,11 @@
 <!DOCTYPE html>
 <html>
     {% for info in recipeInfo %}
+    <p style="font-size:170%;">id : {{info.id}}  | total calories : {{info.totalCal}}</p>
     <ul>
-        <li style="font-size:160%;">breakfast : {{info.foodItem1}}</li>
-        <li style="font-size:160%;">lunch : {{info.foodItem2}}</li>
-        <li style="font-size:160%;">dinner : {{info.foodItem3}}</li>
+        <li style="font-size:160%;">breakfast : <br> {{info.foodItem1}} | {{info.cal1}} calories</li>
+        <li style="font-size:160%;">lunch : <br> {{info.foodItem2}} | {{info.cal2}} calories <br> {{info.foodItem3}} | {{info.cal3}} calories</li>
+        <li style="font-size:160%;">dinner : <br> {{info.foodItem4}} | {{info.cal4}} calories<br> {{info.foodItem5}} | {{info.cal5}} calories</li>
     </ul>
     <form action="/recipe/delete/{{info.id}}" method="POST"> {% csrf_token %}
         <input type = "submit" value = "Delete">

@@ -39,11 +39,16 @@ class foodTable(models.Model):
         return self.foodName
 
 class recipeTable(models.Model):
-    user = models.ForeignKey('post_data', on_delete=models.CASCADE, null = True)
+    user = models.CharField(max_length = 50, default = '')
+    totalCal = models.FloatField(default = 0)
     foodItem1 = models.CharField(max_length=125, null=True)
     cal1 = models.FloatField(default=0)
     foodItem2 = models.CharField(max_length=125, null=True)
     cal2 = models.FloatField(default=0)
     foodItem3 = models.CharField(max_length=125, null=True)
     cal3 = models.FloatField(default=0)
+    foodItem4 = models.CharField(max_length=125, null=True)
+    cal4 = models.FloatField(default=0)
+    foodItem5 = models.CharField(max_length=125, null=True)
+    cal5 = models.FloatField(default=0)
 
