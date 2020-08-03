@@ -3,7 +3,7 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import {Switch} from 'react-router-dom';
 import {withRouter} from 'react-router';
 import './App.css';
-import {Space, Layout, Menu, Typography, Form, Input, Button} from 'antd';
+import {Layout, Menu, Typography, Form, Input, Button} from 'antd';
 import Registration from './registration';
 import Info from './info';
 import Recipes from './recipes';
