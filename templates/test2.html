@@ -8,6 +8,7 @@
         <p>calories : {{inf.calories}}</p>
         <p>height : {{inf.height}}</p>
         <p>weight : {{inf.weight}}</p>
+        <p>diet : {{inf.specialDiet}}</p>
         <form action="/edit/" method="POST">
         {% csrf_token %}
         <input type="submit" value="edit">
