@@ -5,15 +5,31 @@
     <p style="font-size:170%;">id : {{info.id}}  | total calories : {{info.totalCal}}</p>
     <ul>
         <li style="font-size:160%;">breakfast : <br> {{info.foodItem1}} | {{info.cal1}} calories</li>
-        <li style="font-size:160%;">lunch : <br> {{info.foodItem2}} | {{info.cal2}} calories <br> {{info.foodItem3}} | {{info.cal3}} calories</li>
-        <li style="font-size:160%;">dinner : <br> {{info.foodItem4}} | {{info.cal4}} calories<br> {{info.foodItem5}} | {{info.cal5}} calories</li>
+        <form action="/recipe/update/1/{{info.id}}" method="POST"> {% csrf_token %}
+            <input type = "submit" value = "Change">
+        </form>
+        <li style="font-size:160%;">lunch : <br> {{info.foodItem2}} | {{info.cal2}} calories
+            <form action="/recipe/update/2/{{info.id}}" method="POST"> {% csrf_token %}
+                <input type = "submit" value = "Change">
+            </form>
+             {{info.foodItem3}} | {{info.cal3}} calories
+             <form action="/recipe/update/3/{{info.id}}" method="POST"> {% csrf_token %}
+                <input type = "submit" value = "Change">
+            </form></li>
+        <li style="font-size:160%;">dinner : <br> {{info.foodItem4}} | {{info.cal4}} calories
+            <form action="/recipe/update/4/{{info.id}}" method="POST"> {% csrf_token %}
+                <input type = "submit" value = "Change">
+            </form>
+            {{info.foodItem5}} | {{info.cal5}} calories
+            <form action="/recipe/update/5/{{info.id}}" method="POST"> {% csrf_token %}
+                <input type = "submit" value = "Change">
+            </form></li>
     </ul>
-    <form action="/recipe/delete/{{info.id}}" method="POST"> {% csrf_token %}
-        <input type = "submit" value = "Delete">
-    </form>
     {% endfor %}
-
+    <form action = "/recipe/past/" methond = "Post">{% csrf_token %}
+        <input type = "submit" value = "past recipes">
+    </form>
     <form action = "/recipe/addNew/" methond = "Post">{% csrf_token %}
-        <input type = "submit" value = "Add">
+        <input type = "submit" value = "new recipe">
     </form>
 </html>
