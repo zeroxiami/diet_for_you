@@ -9,4 +9,4 @@ class post_data_serializer(serializers.ModelSerializer):
 class recipeTable_serializer(serializers.ModelSerializer):
     class Meta:
         model = recipeTable
-        fields = ['user', 'foodItem1', 'cal1', 'foodItem2', 'cal2', 'foodItem3', 'cal3']
+        fields = ['user', 'totalCal', 'foodItem1', 'cal1', 'foodItem2', 'cal2', 'foodItem3', 'cal3', 'foodItem4', 'cal4', 'foodItem5', 'cal5']
