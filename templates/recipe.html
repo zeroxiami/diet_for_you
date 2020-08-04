@@ -25,6 +25,9 @@
                 <input type = "submit" value = "Change">
             </form></li>
     </ul>
+    <form action = "/recipe/delete/{{info.id}}" methond = "Post">{% csrf_token %}
+        <input type = "submit" value = "delete">
+    </form>
     {% endfor %}
     <form action = "/recipe/past/" methond = "Post">{% csrf_token %}
         <input type = "submit" value = "past recipes">

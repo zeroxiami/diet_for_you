@@ -309,3 +309,21 @@ def recipeAdd(request):
          foodItem5 = food5.foodName, cal5 = cal5)
       inserts.save()
       return redirect('/recipe/')
+
+def foodList(request):
+   with connection.cursor() as cursor:
+      cursor.execute('SELECT main_foodTable.foodName, main_foodTable.foodCal, count(main_foodTable.foodId) AS num FROM main_foodTable JOIN main_recipeTable ON(foodItem1 = foodName OR foodItem2 = foodName OR foodItem3 = foodName OR foodItem4 = foodName OR foodItem5 = foodName) GROUP BY foodId Order By num desc LIMIT 5')
+      topFood = dictfetchall(cursor)
+   with connection.cursor() as cursor:
+      cursor.execute('SELECT user, count(*) AS num FROM main_recipeTable GROUP BY user ORDER BY num desc LIMIT 3')
+      users = dictfetchall(cursor)
+   return render(request, 'foodList.html', 
+   {'topFood' : topFood,
+   'users' : users})
+
+def dictfetchall(cursor):
+    columns = [col[0] for col in cursor.description]
+    return [
+        dict(zip(columns, row))
+        for row in cursor.fetchall()
+    ]

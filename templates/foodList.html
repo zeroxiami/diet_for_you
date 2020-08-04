@@ -1,0 +1,9 @@
+<html>
+    {% for food in topFood %}
+    <p style="font-size:170%;">food name : {{food.foodName}}  | calories : {{food.foodCal}} | count : {{food.num}}</p>
+    {% endfor %}
+    <br></br>
+    {% for people in users %}
+    <p style="font-size:170%;">name : {{people.user}}  |  count : {{people.num}}</p>
+    {% endfor %}
+</html>
