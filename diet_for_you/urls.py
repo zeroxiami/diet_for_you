@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from main.views import  personalInfo, edit, post_info, recipe, recipeDelete, recipeAdd, signup, profile
+from main.views import  personalInfo, edit, post_info, recipe, recipeDelete, recipeAdd, signup, profile, recipeUpdate, pastRecipe, foodList
 from django.contrib.auth import views
 from rest_framework import routers
 from main import views
@@ -31,10 +31,12 @@ urlpatterns = [
     path('edit/', edit),
     path('edit/updateInfo/', post_info),
     path('recipe/', recipe),
-    path('recipe/delete/<int:recipeId>', recipeDelete),
+    path('recipe/past/', pastRecipe),
+    path('recipe/update/<int:foodItem>/<int:recipeId>', recipeUpdate),
     path('recipe/addNew/', recipeAdd),
+    path('recipe/delete/<int:recipeId>/', recipeDelete),
     path('signup/', signup),
     path('profile/', profile),
-    path('admin/', admin.site.urls),
+    path('countList/', foodList),
     path('api/', include(router.urls))
 ]

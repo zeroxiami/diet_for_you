@@ -37,6 +37,11 @@ class foodTable(models.Model):
 
     def __str__(self) :
         return self.foodName
+    class Meta:
+       indexes = [
+           models.Index(fields=['foodCal']),
+           models.Index(fields=['foodCal','trait', 'restrict']),
+        ]
 
 class recipeTable(models.Model):
     user = models.CharField(max_length = 50, default = '')
@@ -51,4 +56,10 @@ class recipeTable(models.Model):
     cal4 = models.FloatField(default=0)
     foodItem5 = models.CharField(max_length=125, null=True)
     cal5 = models.FloatField(default=0)
+    def __str__(self) :
+        return self.user
+    class Meta:
+        indexes = [
+           models.Index(fields=['user']),
+        ]
 
