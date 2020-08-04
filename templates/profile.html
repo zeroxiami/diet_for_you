@@ -34,31 +34,31 @@
 
       <div class="row">
 
-        <div class="mt-4 mb-4 mx-auto" style="text-align:center;">
-        <h2>Profile</h2>
+        <div class="mt-4 mb-4 mx-auto" style="text-align:Left;">
+        <h2>Profile Information</h2>
 
-        <div class="mb-4 mx-auto" style="display: inline-block;">
+        <div class="mb-4">
           <form action="/profile/" method="POST">
               {% csrf_token %}
-              <p>id : {{userId}}</p>
-              <label for="input">name: </label>
-              <input type="text" id="input" name="name"><br><br>
-              <label for="input2">calories: </label>
-              <input type="number" id="input2" name="cal"><br><br>
-              <label for="input3">height: </label>
-              <input type="number" id="input3" name="height"><br><br>
-              <label for="input4">weight: </label>
-              <input type="number" id="input4" name = "weight"><br><br>
-              <label for="input5">daily exercise: </label>
-              <input type="number" id="input5" name = "exercise"><br><br>
-              <label for="input6">speical diet: </label>
-              <select name="speicalDiet" id="input6">
+              <p style="text-align:center">id : {{userId}}</p>
+              <label for="input">name:  </label>
+              <input type="text" id="input" name="name" style="float:right; text-align:right;"><br><br>
+              <label for="input2">Calories:  </label>
+              <input type="number" id="input2" name="cal" style="float:right; text-align:right;"><br><br>
+              <label for="input3">Height:  </label>
+              <input type="number" id="input3" name="height" style="float:right; text-align:right;"><br><br>
+              <label for="input4">Weight:  </label>
+              <input type="number" id="input4" name = "weight" style="float:right; text-align:right;"><br><br>
+              <label for="input5">Daily Exercise:  </label>
+              <input type="number" id="input5" name = "exercise" style="float:right; text-align:right;"><br><br>
+              <label for="input6">Speical Diet:  </label>
+              <select name="speicalDiet" id="input6" style="float:right; text-align:right;">
               <option value="none">none</option>
-              <option value = "ketogenic diet">ketogenic diet</option>
-              <option value="vegetarian">vegetarian</option>
+              <option value = "ketogenic diet">Ketogenic diet</option>
+              <option value="vegetarian">Vegetarian</option>
               </select><br><br>
-              <label for="input7">age: </label>
-              <input type="number" id="input7" name = "age"><br><br>
+              <label for="input7">Age: </label>
+              <input type="number" id="input7" name = "age" style="float:right; text-align:right;"><br><br>
               <input type="submit" value="Submit">
               <input type="hidden" id="input0" name="pid" value = {{userId}}><br><br>
             </form>
