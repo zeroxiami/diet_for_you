@@ -1,26 +1,83 @@
-<html>
-    <h1>personal information</h1>
-    <form action="/edit/updateInfo/" method="POST">
-        {% csrf_token %}
-        <p>id : {{info.id}}</p>
-        <label for="input">name: </label>
-        <input type="text" id="input" name="name" value={{info.name}}><br><br>
-        <label for="input2">calories: </label>
-        <input type="text" id="input2" name="cal" value = {{info.calories}}><br><br>
-        <label for="input3">height: </label>
-        <input type="text" id="input3" name="height" value = {{info.height}}><br><br>
-        <label for="input4">weight: </label>
-        <input type="text" id="input4" name = "weight" value = {{info.weight}}><br><br>
-        <label for="input5">daily exercise: </label>
-        <input type="number" id="input5" name = "exercise" value = {{info.dailyExtraConsume}}><br><br>
-        <label for="input6">speical diet: </label>
-        <select name="speicalDiet" id="input6" value = {{info.specialDiet}}>
-        <option value="none">none</option>
-        <option value="vegetarian">vegetarian</option>
-        </select><br><br>
-        <label for="input7">age: </label>
-        <input type="number" id="input7" name = "age" value = {{info.age}}><br><br>
-        <input type="submit" value="Submit">
-        <input type="hidden" id="input0" name="pid" value = {{info.id}}><br><br>
-      </form>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<title>Sign Up</title>
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+
+<div class="collapse navbar-collapse" id="navbarsExample02">
+<ul class="navbar-nav mr-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../login">Login</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Registration</a>
+  </li>
+  <li class="nav-item active">
+    <a class="nav-link" href="/main">Personal Information<span class="sr-only">(current)</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/recipe">recipes</a>
+  </li>
+</ul>
+</div>
+</nav>
+</head>
+<body class="bg-light">
+    <div class="container">
+
+  <div class="row">
+
+    <div class="mt-4 mb-4 mx-auto" style="text-align:left">
+    <h2>Edit Personal Information</h2>
+
+    <div class="mb-4">
+      <form action="/edit/updateInfo/" method="POST">
+          {% csrf_token %}
+          <p style="text-align:center"> id : {{info.id}}</p>
+          <label for="input">Name: </label>
+          <input type="text" id="input" name="name" style="float:right; text-align:right;" value={{info.name}}><br><br>
+          <label for="input2">Calories: </label>
+          <input type="text" id="input2" name="cal" style="float:right; text-align:right;" value = {{info.calories}}><br><br>
+          <label for="input3">Height(in): </label>
+          <input type="text" id="input3" name="height" style="float:right; text-align:right;" value = {{info.height}}><br><br>
+          <label for="input4">Weight(lbs): </label>
+          <input type="text" id="input4" name = "weight" style="float:right; text-align:right;" value = {{info.weight}}><br><br>
+          <label for="input5">Daily Exercise: </label>
+          <input type="number" id="input5" name = "exercise" style="float:right; text-align:right;" value = {{info.dailyExtraConsume}}><br><br>
+          <label for="input6">Speical Diet: </label>
+          <select name="speicalDiet" id="input6" style="float:right; text-align:right;" value = {{info.specialDiet}}>
+          <option value="none">none</option>
+          <option value="vegetarian">Vegetarian</option>
+          <option value="ketogenic">Ketogenic</option>
+          </select><br><br>
+          <label for="input7">Age: </label>
+          <input type="number" id="input7" name = "age" style="float:right; text-align:right;" value = {{info.age}}><br><br>
+          <input type="submit" value="Submit">
+          <input type="hidden" id="input0" name="pid" value = {{info.id}}><br><br>
+        </form>
+</div>
+
+</div>
+</div>
+</div>
+</body>
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+
+  </footer>
+      <script>window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd" crossorigin="anonymous"></script>
+        <script src="form-validation.js"></script>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </html>
