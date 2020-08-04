@@ -17,12 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from main.views import  personalInfo, edit, post_info, recipe, recipeDelete, recipeAdd, signup, profile, recipeUpdate, pastRecipe, foodList
 from django.contrib.auth import views
-from rest_framework import routers
 from main import views
-
-router = routers.DefaultRouter()
-router.register(r'Info', views.post_data_view, 'Info')
-router.register(r'Recipes', views.recipeTable_view, 'Recipes')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -38,5 +33,4 @@ urlpatterns = [
     path('signup/', signup),
     path('profile/', profile),
     path('countList/', foodList),
-    path('api/', include(router.urls))
 ]
