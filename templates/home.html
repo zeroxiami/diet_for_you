@@ -21,7 +21,7 @@
             <a class="nav-link" href="/main">Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/recipe">Meal Plans</a>
+            <a class="nav-link" href="/recipe">Diet Plans</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/countList">Count List<span class="sr-only"></span></a>
@@ -36,18 +36,18 @@
           <div class="row">
 
             <div class="mt-4 mb-4 mx-auto" style="text-align:center">
+              {% load static %}
+            <img src="{% static 'images/bg_food.png' %}" width="490" height="360">
+            <br><br>
               {% for inf in info %}
               <h2>Hello {{inf.name}}!</h2>
               {% endfor %}
 
             <h2>Welcome to Diet for You!</h2>
-
+              <br>
             <form action = "/recipe/addNew/" methond = "Post" style="text-align:center;">{% csrf_token %}
-                <button type="submit" class="btn btn-primary">Add Meal Plan</button>
+                <button type="submit" class="btn btn-primary">Get Your Diet Plan</button>
             </form>
-
-            {% load static %}
-            <img src="{% static "/bg_food.png" %}" alt="My image">
 
 
             <div class="mb-4">
