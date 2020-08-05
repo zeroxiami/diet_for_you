@@ -20,7 +20,7 @@
                     <a class="nav-link" href="/main">Profile</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/recipe">Meal Plans<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/recipe">Diet Plans<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/countList">Count List<span class="sr-only"></span></a>
@@ -84,14 +84,14 @@
                     <br>
                     <div style="width:50%;margin:auto;text-align:center;">
                     <form action = "/recipe/delete/{{info.id}}" methond = "Post">{% csrf_token %}
-                        <button type="submit" class="btn btn-primary">Delete Meal Plan</button>
+                        <button type="submit" class="btn btn-primary">Delete Diet Plan</button>
                     </form><br>
                     {% endfor %}
                     <form action = "/recipe/addNew/" methond = "Post">{% csrf_token %}
-                        <button type="submit" class="btn btn-primary">Add Meal Plan</button>
+                        <button type="submit" class="btn btn-primary">Add Diet Plan</button>
                     </form><br>
                     <form action = "/recipe/past/" methond = "Post">{% csrf_token %}
-                        <button type="submit" class="btn btn-primary">All Meal Plans</button>
+                        <button type="submit" class="btn btn-primary">All Diet Plans</button>
                     </form>
                 </div>
                 </div>
