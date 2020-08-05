@@ -31,15 +31,21 @@ def profile(request):
    diet = request.POST['speicalDiet']
    age = request.POST['age']
    with connection.cursor() as cursor:
-      cursor.execute("INSERT INTO main_post_data(id, calories, height, weight, name, dailyExtraConsume, specialDiet, age) VALUES(%s, %s, %s, %s, %s, %s, %s, %s)", [personId, newCal, newHeight, newWeight, newName, exercise, diet, age])   
+      cursor.execute("INSERT INTO main_post_data(id, calories, height, weight, name, dailyExtraConsume, specialDiet, age) VALUES(%s, %s, %s, %s, %s, %s, %s, %s)", [personId, newCal, newHeight, newWeight, newName, exercise, diet, age])
    return redirect('/main/')
+
+def home(request):
+    currentUser = request.user
+    personId = currentUser.username
+    person = post_data.objects.raw('SELECT * FROM main_post_data WHERE id = %s', [personId])
+    return render(request, "home.html", {'info' : person})
 
 
 
 def personalInfo(request):
    currentUser = request.user
    personId = currentUser.username
-   person = post_data.objects.raw('SELECT * FROM main_post_data WHERE id = %s', [personId])    
+   person = post_data.objects.raw('SELECT * FROM main_post_data WHERE id = %s', [personId])
    return render(request, 'test2.html', {'info' : person}
    )
 
@@ -53,7 +59,7 @@ def edit(request):
    return render(request, 'test.html', {'info':person})
 
 
-   
+
 
 def post_info(request):
    personId = request.POST['pid']
@@ -65,7 +71,7 @@ def post_info(request):
    diet = request.POST['speicalDiet']
    age = request.POST['age']
    with connection.cursor() as cursor:
-      cursor.execute("UPDATE main_post_data SET name = %s, calories = %s, weight = %s, height = %s, dailyExtraConsume = %s, specialDiet = %s,  age = %s WHERE id = %s", [newName, newCal, newWeight, newHeight, exercise, diet, age, personId])   
+      cursor.execute("UPDATE main_post_data SET name = %s, calories = %s, weight = %s, height = %s, dailyExtraConsume = %s, specialDiet = %s,  age = %s WHERE id = %s", [newName, newCal, newWeight, newHeight, exercise, diet, age, personId])
    return redirect('/main/')
 
 def recipe(request):
@@ -283,10 +289,10 @@ def recipeAdd(request):
       food5q = foodTable.objects.raw('SELECT * FROM main_foodTable WHERE foodCal BETWEEN %s AND %s AND restrict <> %s ORDER BY random() LIMIT 1', [totalCal/3.2, totalCal/1.5, 'Breakfast'])
       for p in food5q:
          food5 = p
-         cal5 = 1.5*float(food5.foodCal) 
-      total = cal1 + cal2 + cal3 + cal4 + cal5  
-      inserts = recipeTable(user = personId, totalCal = total, foodItem1 = food1.foodName, cal1 = cal1, foodItem2 = food2.foodName, 
-         cal2 = cal2, foodItem3 = food3.foodName, cal3 = food3.foodCal, foodItem4 = food4.foodName, cal4 = cal4, 
+         cal5 = 1.5*float(food5.foodCal)
+      total = cal1 + cal2 + cal3 + cal4 + cal5
+      inserts = recipeTable(user = personId, totalCal = total, foodItem1 = food1.foodName, cal1 = cal1, foodItem2 = food2.foodName,
+         cal2 = cal2, foodItem3 = food3.foodName, cal3 = food3.foodCal, foodItem4 = food4.foodName, cal4 = cal4,
          foodItem5 = food5.foodName, cal5 = cal5)
       inserts.save()
       return redirect('/recipe/')
@@ -314,10 +320,10 @@ def recipeAdd(request):
       food5q = foodTable.objects.raw('SELECT * FROM main_foodTable WHERE trait <> %s AND foodCal BETWEEN %s AND %s AND restrict <> %s ORDER BY random() LIMIT 1', ['Meat', totalCal/3.2, totalCal/1.5, 'Breakfast'])
       for p in food5q:
          food5 = p
-         cal5 = 1.5*float(food5.foodCal) 
-      total = cal1 + cal2 + cal3 + cal4 + cal5  
-      inserts = recipeTable(user = personId, totalCal = total, foodItem1 = food1.foodName, cal1 = cal1, foodItem2 = food2.foodName, 
-         cal2 = cal2, foodItem3 = food3.foodName, cal3 = food3.foodCal, foodItem4 = food4.foodName, cal4 = cal4, 
+         cal5 = 1.5*float(food5.foodCal)
+      total = cal1 + cal2 + cal3 + cal4 + cal5
+      inserts = recipeTable(user = personId, totalCal = total, foodItem1 = food1.foodName, cal1 = cal1, foodItem2 = food2.foodName,
+         cal2 = cal2, foodItem3 = food3.foodName, cal3 = food3.foodCal, foodItem4 = food4.foodName, cal4 = cal4,
          foodItem5 = food5.foodName, cal5 = cal5)
       inserts.save()
       return redirect('/recipe/')
@@ -345,10 +351,10 @@ def recipeAdd(request):
       food5q = foodTable.objects.raw('SELECT * FROM main_foodTable WHERE restrict <> %s AND foodCal BETWEEN %s AND %s AND restrict <> %s ORDER BY random() LIMIT 1', ['High Carb', totalCal/3.2, totalCal/1.5, 'Breakfast'])
       for p in food5q:
          food5 = p
-         cal5 = 1.5*float(food5.foodCal) 
-      total = cal1 + cal2 + cal3 + cal4 + cal5  
-      inserts = recipeTable(user = personId, totalCal = total, foodItem1 = food1.foodName, cal1 = cal1, foodItem2 = food2.foodName, 
-         cal2 = cal2, foodItem3 = food3.foodName, cal3 = food3.foodCal, foodItem4 = food4.foodName, cal4 = cal4, 
+         cal5 = 1.5*float(food5.foodCal)
+      total = cal1 + cal2 + cal3 + cal4 + cal5
+      inserts = recipeTable(user = personId, totalCal = total, foodItem1 = food1.foodName, cal1 = cal1, foodItem2 = food2.foodName,
+         cal2 = cal2, foodItem3 = food3.foodName, cal3 = food3.foodCal, foodItem4 = food4.foodName, cal4 = cal4,
          foodItem5 = food5.foodName, cal5 = cal5)
       inserts.save()
       return redirect('/recipe/')
@@ -360,7 +366,7 @@ def foodList(request):
    with connection.cursor() as cursor:
       cursor.execute('SELECT user, count(*) AS num FROM main_recipeTable GROUP BY user ORDER BY num desc LIMIT 3')
       users = dictfetchall(cursor)
-   return render(request, 'foodList.html', 
+   return render(request, 'foodList.html',
    {'topFood' : topFood,
    'users' : users})
 
