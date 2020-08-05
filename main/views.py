@@ -197,6 +197,57 @@ def recipeUpdate(request, foodItem, recipeId):
          totalCal = totalCal - cal + newCal
          with connection.cursor() as cursor:
             cursor.execute("UPDATE main_recipeTable SET foodItem5 = %s, cal5 = %s, totalCal = %s WHERE id = %s", [newFood.foodName, newCal, totalCal, recipeId])
+   elif person.specialDiet == 'ketogenic diet':
+      if foodItem == 1:
+         foodItem = foodItems.foodItem1
+         cal = float(foodItems.cal1)
+         newFoodq = foodTable.objects.raw('SELECT * FROM main_foodTable WHERE foodCal BETWEEN %s AND %s AND restrict = %s AND foodName <> %s ORDER BY random() LIMIT 1', [cal/3, cal/1.2, 'Breakfast', foodItem])
+         for p in newFoodq:
+            newFood = p
+         newCal = 2*float(newFood.foodCal)
+         totalCal = totalCal - cal + newCal
+         with connection.cursor() as cursor:
+            cursor.execute("UPDATE main_recipeTable SET foodItem1 = %s, cal1 = %s, totalCal = %s WHERE id = %s", [newFood.foodName, newCal, totalCal, recipeId])
+      if foodItem == 2:
+         foodItem = foodItems.foodItem2
+         cal = float(foodItems.cal2)
+         newFoodq = foodTable.objects.raw('SELECT * FROM main_foodTable WHERE foodCal BETWEEN %s AND %s AND foodName <> %s ORDER BY random() LIMIT 1', [cal/2, cal/1, foodItem])
+         for p in newFoodq:
+            newFood = p
+         newCal = 1.5*float(newFood.foodCal)
+         totalCal = totalCal - cal + newCal
+         with connection.cursor() as cursor:
+            cursor.execute("UPDATE main_recipeTable SET foodItem2 = %s, cal2 = %s, totalCal = %s WHERE id = %s", [newFood.foodName, newCal, totalCal, recipeId])
+      if foodItem == 3:
+         foodItem = foodItems.foodItem3
+         cal = float(foodItems.cal3)
+         newFoodq = foodTable.objects.raw('SELECT * FROM main_foodTable WHERE foodCal BETWEEN %s AND %s AND foodName <> %s ORDER BY random() LIMIT 1', [cal/2.5, cal/1.2, foodItem])
+         for p in newFoodq:
+            newFood = p
+         newCal = 2*float(newFood.foodCal)
+         totalCal = totalCal - cal + newCal
+         with connection.cursor() as cursor:
+            cursor.execute("UPDATE main_recipeTable SET foodItem3 = %s, cal3 = %s, totalCal = %s WHERE id = %s", [newFood.foodName, newCal, totalCal, recipeId])
+      if foodItem == 4:
+         foodItem = foodItems.foodItem4
+         cal = float(foodItems.cal4)
+         newFoodq = foodTable.objects.raw('SELECT * FROM main_foodTable WHERE foodCal BETWEEN %s AND %s AND foodName <> %s ORDER BY random() LIMIT 1', [cal/2, cal/1, foodItem])
+         for p in newFoodq:
+            newFood = p
+         newCal = 1.5*float(newFood.foodCal)
+         totalCal = totalCal - cal + newCal
+         with connection.cursor() as cursor:
+            cursor.execute("UPDATE main_recipeTable SET foodItem4 = %s, cal4 = %s, totalCal = %s WHERE id = %s", [newFood.foodName, newCal, totalCal, recipeId])
+      if foodItem == 5:
+         foodItem = foodItems.foodItem5
+         cal = float(foodItems.cal5)
+         newFoodq = foodTable.objects.raw('SELECT * FROM main_foodTable WHERE foodCal BETWEEN %s AND %s AND foodName <> %s ORDER BY random() LIMIT 1', [cal/2, cal/1, foodItem])
+         for p in newFoodq:
+            newFood = p
+         newCal = 1.5*float(newFood.foodCal)
+         totalCal = totalCal - cal + newCal
+         with connection.cursor() as cursor:
+            cursor.execute("UPDATE main_recipeTable SET foodItem5 = %s, cal5 = %s, totalCal = %s WHERE id = %s", [newFood.foodName, newCal, totalCal, recipeId])
    return redirect('/recipe/')
 
 def recipeAdd(request):
@@ -227,7 +278,7 @@ def recipeAdd(request):
          food4 = p
          cal4 = 1.5*float(food4.foodCal)
          totalCal = totalCal - cal4
-      food5q = foodTable.objects.raw('SELECT * FROM main_foodTable WHERE foodCal BETWEEN %s AND %s AND restrict <> %s ORDER BY random() LIMIT 1', [totalCal/2, totalCal/1.5, 'Breakfast'])
+      food5q = foodTable.objects.raw('SELECT * FROM main_foodTable WHERE foodCal BETWEEN %s AND %s AND restrict <> %s ORDER BY random() LIMIT 1', [totalCal/3.2, totalCal/1.5, 'Breakfast'])
       for p in food5q:
          food5 = p
          cal5 = 1.5*float(food5.foodCal) 
@@ -258,7 +309,7 @@ def recipeAdd(request):
          food4 = p
          cal4 = 1.5*float(food4.foodCal)
          totalCal = totalCal - cal4
-      food5q = foodTable.objects.raw('SELECT * FROM main_foodTable WHERE trait <> %s AND foodCal BETWEEN %s AND %s AND restrict <> %s ORDER BY random() LIMIT 1', ['Meat', totalCal/2, totalCal/1.5, 'Breakfast'])
+      food5q = foodTable.objects.raw('SELECT * FROM main_foodTable WHERE trait <> %s AND foodCal BETWEEN %s AND %s AND restrict <> %s ORDER BY random() LIMIT 1', ['Meat', totalCal/3.2, totalCal/1.5, 'Breakfast'])
       for p in food5q:
          food5 = p
          cal5 = 1.5*float(food5.foodCal) 
@@ -289,7 +340,7 @@ def recipeAdd(request):
          food4 = p
          cal4 = 1.5*float(food4.foodCal)
          totalCal = totalCal - cal4
-      food5q = foodTable.objects.raw('SELECT * FROM main_foodTable WHERE restrict <> %s AND foodCal BETWEEN %s AND %s AND restrict <> %s ORDER BY random() LIMIT 1', ['High Carb', totalCal/2, totalCal/1.5, 'Breakfast'])
+      food5q = foodTable.objects.raw('SELECT * FROM main_foodTable WHERE restrict <> %s AND foodCal BETWEEN %s AND %s AND restrict <> %s ORDER BY random() LIMIT 1', ['High Carb', totalCal/3.2, totalCal/1.5, 'Breakfast'])
       for p in food5q:
          food5 = p
          cal5 = 1.5*float(food5.foodCal) 
