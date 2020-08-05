@@ -1,13 +1,51 @@
-<html>
-    {% for info in recipeInfo %}
-    <p style="font-size:170%;">id : {{info.id}}  | total calories : {{info.totalCal}}</p>
-    <ul>
-        <li style="font-size:160%;">breakfast : <br> {{info.foodItem1}} | {{info.cal1}} calories</li>
-        <li style="font-size:160%;">lunch : <br> {{info.foodItem2}} | {{info.cal2}} calories<br>{{info.foodItem3}} | {{info.cal3}} calories
-        <li style="font-size:160%;">dinner : <br> {{info.foodItem4}} | {{info.cal4}} calories<br>{{info.foodItem5}} | {{info.cal5}} calories
-    </ul>
-    {% endfor %}
-    <form action = "/recipe/" methond = "Post">{% csrf_token %}
-        <input type = "submit" value = "return">
-    </form>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+        <title>Recipe</title>
+
+        <nav class="navbar navbar-expand navbar-dark bg-dark">
+            <div class="collapse navbar-collapse" id="navbarsExample02">
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="..\login">Login <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Registration</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Personal Information</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Recipes</a>
+                </li>
+                </ul>
+            </div>
+        </nav>
+    </head>
+    <body class="bg-light">
+        {% for info in recipeInfo %}
+        <p style="font-size:170%;">User: {{info.user}} <br> Total Calories: {{info.totalCal}} calories</p>
+        <ul style="list-style-type:none;">
+            <li style="font-size:130%;"><h3>Breakfast</h3> {{info.foodItem1}}: {{info.cal1}} calories</li>
+            <form action="/recipe/update/1/{{info.id}}" method="POST"> {% csrf_token %}</form>
+            <li style="font-size:130%;"><h3>Lunch</h3> {{info.foodItem2}}: {{info.cal2}} calories</li>
+                <form action="/recipe/update/2/{{info.id}}" method="POST"> {% csrf_token %}</form>
+                <li style="font-size:130%;">{{info.foodItem3}}: {{info.cal3}} calories</li>
+                <form action="/recipe/update/3/{{info.id}}" method="POST"> {% csrf_token %}</form>
+                <li style="font-size:130%;"><h3>Dinner</h3> {{info.foodItem4}}: {{info.cal4}} calories</li>
+                <form action="/recipe/update/4/{{info.id}}" method="POST"> {% csrf_token %}</form>
+                <li style="font-size:130%;">{{info.foodItem5}}: {{info.cal5}} calories</li>
+                <form action="/recipe/update/5/{{info.id}}" method="POST"> {% csrf_token %}</form></li>
+        </ul>
+        {% endfor %}
+        <form action = "/recipe/" methond = "Post">{% csrf_token %}
+            <button type="submit" class="btn btn-primary">Return</button>
+        </form>
+    </body>
 </html>
