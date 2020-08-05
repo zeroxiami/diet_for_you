@@ -28,43 +28,42 @@
             </div>
         </nav>
     </head>
-    <body class="bg-light">
-        {% for info in recipeInfo %}
-        <p style="font-size:170%;">User: {{info.user}} <br> Total Calories: {{info.totalCal}} calories</p>
-        <ul style="list-style-type:none;">
-            <li style="font-size:130%;"><h3>Breakfast</h3> {{info.foodItem1}}: {{info.cal1}} calories</li>
-            <form action="/recipe/update/1/{{info.id}}" method="POST"> {% csrf_token %}
-                <button type="submit" class="btn btn-secondary">Change</button>
-            </form>
-            <li style="font-size:130%;"><h3>Lunch</h3> {{info.foodItem2}}: {{info.cal2}} calories</li>
-                <form action="/recipe/update/2/{{info.id}}" method="POST"> {% csrf_token %}
-                    <button type="submit" class="btn btn-secondary">Change</button>
-                </form>
-                <li style="font-size:130%;">{{info.foodItem3}}: {{info.cal3}} calories</li>
-                <form action="/recipe/update/3/{{info.id}}" method="POST"> {% csrf_token %}
-                    <button type="submit" class="btn btn-secondary">Change</button>
-                </form>
-                <li style="font-size:130%;"><h3>Dinner</h3> {{info.foodItem4}}: {{info.cal4}} calories</li>
-                <form action="/recipe/update/4/{{info.id}}" method="POST"> {% csrf_token %}
-                    <button type="submit" class="btn btn-secondary">Change</button>
-                </form>
-                <li style="font-size:130%;">{{info.foodItem5}}: {{info.cal5}} calories</li>
-                <form action="/recipe/update/5/{{info.id}}" method="POST"> {% csrf_token %}
-                    <button type="submit" class="btn btn-secondary">Change</button>
-                </form></li>
-        </ul>
-        <form action = "/recipe/delete/{{info.id}}" methond = "Post">{% csrf_token %}
-            <button type="submit" class="btn btn-primary">Delete Recipe</button>
-        </form>
-        <br>
-        <form action = "/recipe/addNew/" methond = "Post">{% csrf_token %}
-            <button type="submit" class="btn btn-primary">Add Recipe</button>
-        </form>
-        <br>
-        {% endfor %}
-        <form action = "/recipe/past/" methond = "Post">{% csrf_token %}
-            <button type="submit" class="btn btn-primary">All Recipes</button>
-        </form>
 
-    </body>
+        <body class="bg-light">
+            {% for info in recipeInfo %}
+            <p style="font-size:170%;">User: {{info.user}} <br> Total Calories: {{info.totalCal}} calories</p>
+            <ul style="list-style-type:none;">
+                <li style="font-size:130%;"><h3>Breakfast</h3> {{info.foodItem1}}: {{info.cal1}} calories</li>
+                <form action="/recipe/update/1/{{info.id}}" method="POST"> {% csrf_token %}
+                    <input type="submit"  class="btn btn-secondary" value = 'change'>
+                </form>
+                <li style="font-size:130%;"><h3>Lunch</h3> {{info.foodItem2}}: {{info.cal2}} calories</li>
+                    <form action="/recipe/update/2/{{info.id}}" method="POST"> {% csrf_token %}
+                        <button type="submit" class="btn btn-secondary">Change</button>
+                    </form>
+                    <li style="font-size:130%;">{{info.foodItem3}}: {{info.cal3}} calories</li>
+                    <form action="/recipe/update/3/{{info.id}}" method="POST"> {% csrf_token %}
+                        <button type="submit" class="btn btn-secondary">Change</button>
+                    </form>
+                    <li style="font-size:130%;"><h3>Dinner</h3> {{info.foodItem4}}: {{info.cal4}} calories</li>
+                    <form action="/recipe/update/4/{{info.id}}" method="POST"> {% csrf_token %}
+                        <button type="submit" class="btn btn-secondary">Change</button>
+                    </form>
+                    <li style="font-size:130%;">{{info.foodItem5}}: {{info.cal5}} calories</li>
+                    <form action="/recipe/update/5/{{info.id}}" method="POST"> {% csrf_token %}
+                        <button type="submit" class="btn btn-secondary">Change</button>
+                    </form></li>
+            </ul>
+            <form action = "/recipe/delete/{{info.id}}" methond = "Post">{% csrf_token %}
+                <button type="submit" class="btn btn-primary">Delete Recipe</button>
+            </form><br>
+            {% endfor %}
+            <form action = "/recipe/addNew/" methond = "Post">{% csrf_token %}
+                <button type="submit" class="btn btn-primary">Add Recipe</button>
+            </form><br>
+            <form action = "/recipe/past/" methond = "Post">{% csrf_token %}
+                <button type="submit" class="btn btn-primary">All Recipes</button>
+            </form>
+
+        </body>
 </html>
