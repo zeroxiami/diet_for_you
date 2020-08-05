@@ -22,7 +22,7 @@
                     <a class="nav-link" href="#">Personal Information</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">recipes</a>
+                    <a class="nav-link" href="#">Recipes</a>
                 </li>
                 </ul>
             </div>
@@ -33,29 +33,19 @@
         <p style="font-size:170%;">User: {{info.user}} <br> Total Calories: {{info.totalCal}} calories</p>
         <ul style="list-style-type:none;">
             <li style="font-size:130%;"><h3>Breakfast</h3> {{info.foodItem1}}: {{info.cal1}} calories</li>
-            <form action="/recipe/update/1/{{info.id}}" method="POST"> {% csrf_token %}
-                <input type = "submit" value = "Change">
-            </form>
+            <form action="/recipe/update/1/{{info.id}}" method="POST"> {% csrf_token %}</form>
             <li style="font-size:130%;"><h3>Lunch</h3> {{info.foodItem2}}: {{info.cal2}} calories</li>
-                <form action="/recipe/update/2/{{info.id}}" method="POST"> {% csrf_token %}
-                    <input type = "submit" value = "Change">
-                </form>
+                <form action="/recipe/update/2/{{info.id}}" method="POST"> {% csrf_token %}</form>
                 <li style="font-size:130%;">{{info.foodItem3}}: {{info.cal3}} calories</li>
-                <form action="/recipe/update/3/{{info.id}}" method="POST"> {% csrf_token %}
-                    <input type = "submit" value = "Change">
-                </form>
+                <form action="/recipe/update/3/{{info.id}}" method="POST"> {% csrf_token %}</form>
                 <li style="font-size:130%;"><h3>Dinner</h3> {{info.foodItem4}}: {{info.cal4}} calories</li>
-                <form action="/recipe/update/4/{{info.id}}" method="POST"> {% csrf_token %}
-                    <input type = "submit" value = "Change">
-                </form>
+                <form action="/recipe/update/4/{{info.id}}" method="POST"> {% csrf_token %}</form>
                 <li style="font-size:130%;">{{info.foodItem5}}: {{info.cal5}} calories</li>
-                <form action="/recipe/update/5/{{info.id}}" method="POST"> {% csrf_token %}
-                    <input type = "submit" value = "Change">
-                </form></li>
+                <form action="/recipe/update/5/{{info.id}}" method="POST"> {% csrf_token %}</form></li>
         </ul>
         {% endfor %}
         <form action = "/recipe/" methond = "Post">{% csrf_token %}
-            <input type = "submit" value = "return">
+            <button type="submit" class="btn btn-primary">Return</button>
         </form>
     </body>
 </html>
