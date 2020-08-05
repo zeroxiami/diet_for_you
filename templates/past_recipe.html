@@ -12,40 +12,55 @@
         <nav class="navbar navbar-expand navbar-dark bg-dark">
             <div class="collapse navbar-collapse" id="navbarsExample02">
                 <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+                <li>
                     <a class="nav-link" href="/login">Login <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Registration</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/main">Personal Information</a>
                 </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/recipe">Recipes</a>
+                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Recipes</a>
+                    <a class="nav-link" href="/countList">Count List<span class="sr-only"></span></a>
                 </li>
                 </ul>
             </div>
         </nav>
     </head>
     <body class="bg-light">
-        {% for info in recipeInfo %}
-        <p style="font-size:170%;">User: {{info.user}} <br> Total Calories: {{info.totalCal}} calories</p>
-        <ul style="list-style-type:none;">
-            <li style="font-size:130%;"><h3>Breakfast</h3> {{info.foodItem1}}: {{info.cal1}} calories</li>
-            <form action="/recipe/update/1/{{info.id}}" method="POST"> {% csrf_token %}</form>
-            <li style="font-size:130%;"><h3>Lunch</h3> {{info.foodItem2}}: {{info.cal2}} calories</li>
-                <form action="/recipe/update/2/{{info.id}}" method="POST"> {% csrf_token %}</form>
-                <li style="font-size:130%;">{{info.foodItem3}}: {{info.cal3}} calories</li>
-                <form action="/recipe/update/3/{{info.id}}" method="POST"> {% csrf_token %}</form>
-                <li style="font-size:130%;"><h3>Dinner</h3> {{info.foodItem4}}: {{info.cal4}} calories</li>
-                <form action="/recipe/update/4/{{info.id}}" method="POST"> {% csrf_token %}</form>
-                <li style="font-size:130%;">{{info.foodItem5}}: {{info.cal5}} calories</li>
-                <form action="/recipe/update/5/{{info.id}}" method="POST"> {% csrf_token %}</form></li>
-        </ul>
-        {% endfor %}
-        <form action = "/recipe/" methond = "Post">{% csrf_token %}
-            <button type="submit" class="btn btn-primary">Return</button>
-        </form>
-    </body>
+        <div class="container">
+            <div class="row">
+              <div class="mt-4 mb-4 mx-auto" style="text-align:Left;">
+                    {% for info in recipeInfo %}
+                    <p style="font-size:170%;">User: {{info.user}} <br> Total Calories: {{info.totalCal}} calories</p>
+                    <div class="mb-4">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <th scope="row">Breakfast</th>
+                                <td>{{info.foodItem1}}: {{info.cal1}} calories</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Lunch: </th>
+                                <td>{{info.foodItem2}}: {{info.cal2}} calories</td>
+                                <td>{{info.foodItem3}}: {{info.cal3}} calories</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Dinner: </th>
+                                <td>{{info.foodItem4}}: {{info.cal4}} calories</td>
+                                <td>{{info.foodItem5}}: {{info.cal5}} calories</td>
+                                </tr>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    {% endfor %}
+                    <form action = "/recipe/" methond = "Post">{% csrf_token %}
+                        <button type="submit" class="btn btn-primary">Return</button>
+                    </form>
+                </body>
+            </div>
+        </div>
+    </div>
 </html>
