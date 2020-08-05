@@ -32,7 +32,7 @@ def profile(request):
    age = request.POST['age']
    with connection.cursor() as cursor:
       cursor.execute("INSERT INTO main_post_data(id, calories, height, weight, name, dailyExtraConsume, specialDiet, age) VALUES(%s, %s, %s, %s, %s, %s, %s, %s)", [personId, newCal, newHeight, newWeight, newName, exercise, diet, age])
-   return redirect('/main/')
+   return redirect('/home/')
 
 def home(request):
     currentUser = request.user
