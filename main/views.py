@@ -72,6 +72,8 @@ def recipe(request):
    currentUser = request.user
    personId = currentUser.username
    recipeInfo = recipeTable.objects.raw('SELECT * FROM main_recipeTable WHERE user = %s ORDER BY id desc LIMIT 1', [personId])
+   if len(recipeInfo) == 0:
+      recipeInfo = recipeTable.objects.raw('SELECT * FROM main_recipeTable ORDER BY random() LIMIT 1')
    return render(request, 'recipe.html', {'recipeInfo' : recipeInfo})
 
 def pastRecipe(request):
