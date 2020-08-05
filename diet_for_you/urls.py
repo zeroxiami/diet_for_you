@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from main.views import  personalInfo, edit, post_info, recipe, recipeDelete, recipeAdd, signup, profile, recipeUpdate, pastRecipe, foodList
+from main.views import  personalInfo, edit, post_info, recipe, recipeDelete, recipeAdd, signup, profile, recipeUpdate, pastRecipe, foodList, home
 from django.contrib.auth import views
+from django.conf import settings
+from django.conf.urls.static import static
 from main import views
 
 urlpatterns = [
@@ -33,4 +35,5 @@ urlpatterns = [
     path('signup/', signup),
     path('profile/', profile),
     path('countList/', foodList),
-]
+    path('home/', home)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
