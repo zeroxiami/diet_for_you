@@ -12,17 +12,17 @@
         <nav class="navbar navbar-expand navbar-dark bg-dark">
             <div class="collapse navbar-collapse" id="navbarsExample02">
                 <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="..\login">Login <span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="../login">Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Registration</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Personal Information</a>
+                    <a class="nav-link" href="/main">Personal Information</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Recipes</a>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/recipe">Recipes<span class="sr-only">(current)</span></a>
                 </li>
                 </ul>
             </div>
@@ -65,6 +65,6 @@
         <form action = "/recipe/past/" methond = "Post">{% csrf_token %}
             <button type="submit" class="btn btn-primary">All Recipes</button>
         </form>
-        
+
     </body>
 </html>
